@@ -50,8 +50,8 @@ Pliki nagłówkowe biblioteki flowcanvas.
 %setup -q
 
 %build
-CC="%{__cc}" \
-CFLAGS="%{rpmcflags}" \
+CXX="%{__cxx}" \
+CXXFLAGS="%{rpmcxxflags}" \
 ./waf configure \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
