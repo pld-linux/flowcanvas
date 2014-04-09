@@ -2,20 +2,21 @@ Summary:	Interactive Gtkmm/Gnomecanvasmm widget for graph-based interfaces
 Summary(pl.UTF-8):	Interaktywny widget Gtkmm/Gnomecanvasmm do interfejsów opartych na rysunkach
 Name:		flowcanvas
 Version:	0.7.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.drobilla.net/%{name}-%{version}.tar.bz2
 # Source0-md5:	a4908f6385ce9fd2ce97c8caa823f053
+Patch0:		%{name}-graph.patch
 URL:		http://drobilla.net/software/flowcanvas/
 BuildRequires:	boost-devel
-BuildRequires:	graphviz-devel >= 2.8
+BuildRequires:	graphviz-devel >= 2.30
 BuildRequires:	gtkmm-devel >= 2.10.0
 BuildRequires:	libgnomecanvasmm-devel >= 2.6.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python
-Requires:	graphviz >= 2.8
+Requires:	graphviz >= 2.30
 Requires:	gtkmm >= 2.10.0
 Requires:	libgnomecanvasmm >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -36,7 +37,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki flowcanvas
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	boost-devel
-Requires:	graphviz-devel >= 2.8
+Requires:	graphviz-devel >= 2.30
 Requires:	gtkmm-devel >= 2.10.0
 Requires:	libgnomecanvasmm-devel >= 2.6.0
 
@@ -48,6 +49,7 @@ Pliki nagłówkowe biblioteki flowcanvas.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 CXX="%{__cxx}" \
